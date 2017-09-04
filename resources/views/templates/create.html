@@ -1,10 +1,5 @@
-@extends('pages.master')
-
-@section('title', 'SMS')
-
-@section('content')
-<main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main" data-ng-controller="EmployeeController">
-	<h1>{{ $heading }}</h1>
+<main  role="main" data-ng-controller="CreateEmployeeController">
+	<h1>{{ heading }}</h1>
 	<form data-ng-submit="saveForm()" name="regForm" novalidate="">
 		<input type="hidden" name="uniquekey" data-ng-model="uniquekey">
 		<div ng-class="{ 'has-error' : regForm.firstname.$invalid && !regForm.firstname.$pristine }" class="form-group">
@@ -25,17 +20,16 @@
 		</div>
 		<div ng-class="{ 'has-error' : regForm.email.$invalid && !regForm.email.$pristine }" class="form-group">
 			<input type="password" name="password" id="password" data-ng-model="password" ng-minlength="8" ng-maxlength="20" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="Password" required="" class="form-control col-md-6">
-			{{-- <label class="error" ng-show="regForm.password.$invalid && !regForm.password.$pristine">Password required !</label> --}}
+			<!-- <label class="error" ng-show="regForm.password.$invalid && !regForm.password.$pristine">Password required !</label> -->
 			<label class="error" ng-show="regForm.password.$error.pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol)</label>
 			<label class="error" ng-show="regForm.password.$error.minlength">Passwords must be between 8 and 20 characters !</label>
 		</div>
 		<div class="form-group" ng-class="{'has-error':formData.password_c.$invalid && !formData.password_c.$pristine}">
 			<input type="password" id="password_c" name="password_c" ng-model="password_c" placeholder="Confirm Password" valid-password-c="password" class="form-control col-md-6" required />
 			<label class="error" ng-show="regForm.password_c.$error.noMatch">Passwords do not match !</label>
-			{{-- <label class="error" ng-show="regForm.password_c.$invalid && !regForm.password_c.$pristine">Confirm Password required !</label> --}}
-			{{-- <p ng-show="regForm.password_c.$error.required" class="error">*</p> --}}
+			<!-- <label class="error" ng-show="regForm.password_c.$invalid && !regForm.password_c.$pristine">Confirm Password required !</label> -->
+			<!-- <p ng-show="regForm.password_c.$error.required" class="error">*</p> -->
 		</div>
 		<button ng-disabled="regForm.$invalid" class="btn btn-success col-md-6"><strong>Save</strong></button>
 	</form>
 </main>
-@endsection

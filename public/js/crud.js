@@ -1,4 +1,12 @@
-var app = angular.module('crudApp', []);
+var app = angular.module('crudApp', ['ngRoute']);
+
+app.config(['$routeProvider', function($routeProvider) {
+	$routeProvider
+	.when('/employee/showall', {
+		templateUrl: 'pages/showall',
+		controller: 'showAllEmployeeController'
+	});
+}]);
 
 app.directive('validPasswordC', function() {
 	return {
@@ -35,16 +43,13 @@ app.controller('EmployeeController', ['$scope', '$http', function ($scope, $http
 
 	$scope.saveForm = function () {
 
-		var adata = {
+		var empdata = {
 			firstName: $scope.firstname,
 			lastName: $scope.lastname,
 			mobileNumber: $scope.phonenumber,
 			email: $scope.email,
 			password: $scope.password
 		};
-
-		console.log(adata);
-		console.log(JSON.stringify(adata));
 
 		/*$http({
 			url: "/employee/create",
@@ -60,7 +65,7 @@ app.controller('EmployeeController', ['$scope', '$http', function ($scope, $http
 				console.log("failure");
 		});*/
 
-		$http.post("/employee/create", adata);
+		$http.post("/employee/create", empdata);
 
 		/*var counter = 0;
 		var arraydata = $scope.formdata;
@@ -88,8 +93,11 @@ app.controller('EmployeeController', ['$scope', '$http', function ($scope, $http
 		$scope.uniquekey = '';
 		$scope.firstname = '';
 		$scope.lastname = '';
-		$scope.email = '';
 		$scope.phonenumber = '';
+		$scope.email = '';
+		$scope.password = '';
+		$scope.password_c = '';
+		
 
 		// localStorage.setItem('formdata', JSON.stringify($scope.formdata));
 
@@ -107,4 +115,8 @@ app.controller('EmployeeController', ['$scope', '$http', function ($scope, $http
 		$scope.email = fd.em;
 		$scope.phonenumber = fd.pn;
 	}
+}]);
+
+app.controller('showAllEmployeeController', ['', function($scope){
+	
 }]);

@@ -17,17 +17,19 @@ class EmployeeController extends Controller
         //
     }
 
-    
     public function store(Request $request)
     {   
-        // dd($request->firstName);
         Employee::create(request(['firstName', 'lastName', 'mobileNumber', 'email', 'password']));
-        // Employee::create($request->all());
     }
 
     public function show(Employee $employee)
     {
         //
+    }
+
+    public function showall()
+    {
+        return Employee::all();
     }
 
     public function edit(Employee $employee)
