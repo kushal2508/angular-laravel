@@ -28,6 +28,13 @@ Route::group(array('prefix'=>'/templates/'),function(){
 Route::post('/employee/create', 'EmployeeController@store');
 
 Route::get('/employee/getallemployees', 'EmployeeController@showall');
+
+Route::group(array('prefix'=>'/api'), function () {
+    Route::resource('employee', 'EmployeeController');
+});
+
+// Route::delete('/employee/delete/{id}', 'StudentController@destroy');
+
 /*Route::get('/employee/getallemployees', function() {
     return Employee::all();
 });*/

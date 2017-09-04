@@ -21,3 +21,12 @@ Backend Technology: Laravel
 6. Displayed this data in HTML page to successfully complete Show All Users Functionality
 7. In order to iterate the JSON data coming from REST API used the angular functionality of ng-Repeat to display all the data
 8. Now will work on Edit and Delete functionality and will then move on Authentication using REST API
+
+04/09/2017 Evening Update:
+1. Working on Delete and Edit functionality
+2. Trying to use Service layer in Angular to directly call on REST API
+3. Used angular-resource.js to complete the task but was not able to achieve the same
+4. Will try to find the solution tomorrow
+5. Referred many codes and links but was not able to find a suitable solution
+6. Without using service layer and using simple API able to complete the task but trying to enhance the example
+7. As of now introduced the factory layer and will connect with REST API tomorrow for delete and update

@@ -1,4 +1,4 @@
-var app = angular.module('crudApp', ['ngRoute']);
+var app = angular.module('crudApp', ['ngRoute', 'ngResource']);
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 	.when('/employee/create', {

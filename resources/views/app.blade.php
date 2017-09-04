@@ -12,6 +12,7 @@
 	<!-- Angular JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.4/angular-resource.min.js"></script>
 
 	{{-- App Dependencies --}}
 	<script src="{{ asset('/app/route.js') }}"></script>
@@ -19,6 +20,9 @@
 	<!-- App Controller -->
 	<script src="{{ asset('/app/controllers/CreateEmployeeController.js') }}"></script>
 	<script src="{{ asset('/app/controllers/ShowallEmployeeController.js') }}"></script>
+
+	{{-- Services --}}
+	<script src="{{ asset('/app/services/employeeServices.js') }}"></script>
 
 	<title>AngularJS Laravel App</title>
 
