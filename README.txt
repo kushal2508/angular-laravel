@@ -31,9 +31,17 @@ Backend Technology: Laravel
 6. Without using service layer and using simple API able to complete the task but trying to enhance the example
 7. As of now introduced the factory layer and will connect with REST API tomorrow for delete and update
 
-05/09/2017 Before Lunnch Update:
+05/09/2017 Before Lunch Update:
 1. Edit and delete functionality resolved
 2. CRUD Operation Completed
 3. Used REST API made in Laravel and Front end using Angular.js
 4. Code pushed in GOGS as well as Github
 5. Now will try to implement Authentication in REST API
+
+05/09/2017 Evening Update:
+1. Started with JWT Authentication
+2. Applied Tymon JWT Auth dependency for Laravel
+3. Created User Authenticate REST API to authenticate the user with the token in header
+4. Created a REST API to register a new User and return him with token
+5. Created a general REST API to check the complete functionality using REST API and JWT Auth
+6. Tomorrow I will introduce Log In and Register feature in my example and will update the JWT Authentication in each API
