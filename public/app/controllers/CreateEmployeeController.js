@@ -1,43 +1,57 @@
-app.controller('CreateEmployeeController', ['$scope', '$http', function ($scope, $http) {
-	$scope.heading = "New Employee";
+app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 	$scope.title = "Registration Form";
 	$scope.phnoPattern = /^\d{10}$/;
 
+	$scope.editid = $routeParams.id;
+	console.log("edit id:" + $scope.editid);
+
+	if($scope.editid > 0) {
+		$scope.heading = "Update Employee";	
+		$scope.action = "Update";
+
+		$http.get("/api/employees/" + $scope.editid)
+		.then(
+			function(records) {
+				console.log("edit success");
+				$scope.uniquekey = records.data.id;
+				$scope.firstname = records.data.firstName;
+				$scope.lastname = records.data.lastName;
+				$scope.phonenumber = records.data.mobileNumber;
+				$scope.email = records.data.email;
+			}, function() {
+				console.log("edit failure");
+			});
+	} else {
+		$scope.heading = "New Employee";
+		$scope.action = "Save";
+	}
+
 	$scope.saveForm = function () {
 
-		var empdata = {
-			firstName: $scope.firstname,
-			lastName: $scope.lastname,
-			mobileNumber: $scope.phonenumber,
-			email: $scope.email,
-			password: $scope.password
-		};
+		console.log($scope.action);
 
-		$http.post("/employee/create", empdata);
+		if($scope.action === 'Save') {
+			var empdata = {
+				firstName: $scope.firstname,
+				lastName: $scope.lastname,
+				mobileNumber: $scope.phonenumber,
+				email: $scope.email,
+				password: $scope.password
+			};
 
-		/*var counter = 0;
-		var arraydata = $scope.formdata;
-		for(ayd in arraydata) {
-			if(arraydata[ayd].uid === $scope.uniquekey){
-				arraydata[ayd].fn = $scope.firstname;
-				arraydata[ayd].ln = $scope.lastname;
-				arraydata[ayd].em = $scope.email;
-				arraydata[ayd].pn = $scope.phonenumber;
-				counter++;
-			}
-			$scope.formdata = arraydata;
+			$http.post("/api/employees", empdata);
+		} else {
+			var empdata = {
+				firstName: $scope.firstname,
+				lastName: $scope.lastname,
+				mobileNumber: $scope.phonenumber,
+				email: $scope.email,
+				password: $scope.password
+			};
+
+			$http.put("/api/employees/" + $scope.editid, empdata);
 		}
-		if(counter === 0) { 
-			var d = new Date().valueOf();
-			$scope.formdata.push({
-				uid: d,
-				fn: $scope.firstname,
-				ln: $scope.lastname,
-				em: $scope.email,
-				pn: $scope.phonenumber
-			});
-		}
-		counter = 0;*/
+
 		$scope.uniquekey = '';
 		$scope.firstname = '';
 		$scope.lastname = '';
@@ -45,22 +59,16 @@ app.controller('CreateEmployeeController', ['$scope', '$http', function ($scope,
 		$scope.email = '';
 		$scope.password = '';
 		$scope.password_c = '';
-		
-
-		// localStorage.setItem('formdata', JSON.stringify($scope.formdata));
 
 		if($scope.regForm.$valid) {
-			alert('Form Submitted Successfully !');
+			if($scope.action === 'Save') {
+				alert('Form Submitted Successfully !');
+			} else {
+				alert('Data Updated Successfully !');
+				$scope.heading = "New Employee";
+				$scope.action = "Save";
+			}
 			$scope.regForm.$setPristine();
 		}
 	};
-
-	$scope.editData = function(fd) {
-		$scope.regForm.$setPristine();
-		$scope.uniquekey = fd.uid;
-		$scope.firstname = fd.fn;
-		$scope.lastname = fd.ln;
-		$scope.email = fd.em;
-		$scope.phonenumber = fd.pn;
-	}
 }]);

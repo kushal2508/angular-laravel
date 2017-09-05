@@ -12,7 +12,7 @@ Backend Technology: Laravel
 6. Stored that data in MySQL database by sending that data to POST Laravel REST API 
 7. Was able to complete the create functionality by combining Angular.js and Laravel
 
-04/09/2017 Befor Lunch Update:
+04/09/2017 Before Lunch Update:
 1. Had created the User Input functionality using Laravel Routing
 2. Then searched the web to route using AngularJS
 3. Again changed the frontend routing using AngularJS in HTML pages rather than blade.php pages
@@ -30,3 +30,10 @@ Backend Technology: Laravel
 5. Referred many codes and links but was not able to find a suitable solution
 6. Without using service layer and using simple API able to complete the task but trying to enhance the example
 7. As of now introduced the factory layer and will connect with REST API tomorrow for delete and update
+
+05/09/2017 Before Lunnch Update:
+1. Edit and delete functionality resolved
+2. CRUD Operation Completed
+3. Used REST API made in Laravel and Front end using Angular.js
+4. Code pushed in GOGS as well as Github
+5. Now will try to implement Authentication in REST API

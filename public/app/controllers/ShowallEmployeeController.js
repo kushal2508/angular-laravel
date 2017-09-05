@@ -1,33 +1,24 @@
 app.controller('ShowallEmployeeController', ['$scope', '$http', function ($scope, $http) {
 
-	$http.get("/employee/getallemployees")
+	$http.get("/api/employees")
 	.then(
 		function(records) {
-			console.log("success");
-			console.log(records);
+			console.log("show all success");
+			// console.log(records);
 			$scope.records = records.data;
 		}, function() {
-			console.log("failure");
+			console.log("show all failure");
 		});
 
-	/*$scope.destroy = function (id) {
-		console.log("delete function entered");
-		console.log('id: ' + id);
-		Emp.remove({empID: id});*/
-
-
-		// dataFactory.deleteEmployee(index);
-		/*.then(function(data) {
-			console.log("delete success");
-		});*/
-	// }
-
-	/*$scope.remove = function(item,index){
-		var result = confirm("Are you sure delete this item?");
-		if (result) {
-			dataFactory.httpRequest('items/'+item.id,'DELETE').then(function(data) {
-				$scope.data.splice(index,1);
+	$scope.delete = function(id) {
+		console.log("Delete ID: " + id);
+		$http.delete("/api/employees/" + id)
+		.then(
+			function(records) {
+				console.log("delete success");
+				$scope.records = records.data;
+			}, function() {
+				console.log("delete failure");
 			});
-		}
-	}*/
+	}
 }]);

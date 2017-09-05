@@ -25,33 +25,8 @@ Route::group(array('prefix'=>'/templates/'),function(){
     }));
 });
 
-Route::post('/employee/create', 'EmployeeController@store');
-
-Route::get('/employee/getallemployees', 'EmployeeController@showall');
-
-Route::group(array('prefix'=>'/api'), function () {
-    Route::resource('employee', 'EmployeeController');
-});
-
-// Route::delete('/employee/delete/{id}', 'StudentController@destroy');
-
-/*Route::get('/employee/getallemployees', function() {
-    return Employee::all();
-});*/
-
-/*Route::get('/', function () {
-    return view('welcome')->with('title', 'AngularJS + Laravel');
-});*/
-
-/*Route::get('/dashboard', function () {
-	return view('pages.create')->with('heading', 'New Employee');
-});*/
-
-/*Route::post('/employee/create', function () {
-	// Employee::create(Input::all());
-	return Employee::all();
-});*/
-
-/*Route::get('/', function () {
-    return view('pages.create')->with('title', 'Laravel CRUD Demo');
-});*/
+Route::get('/api/employees', 'EmployeeController@showall');
+Route::post('/api/employees', 'EmployeeController@store');
+Route::get('/api/employees/{id}', 'EmployeeController@show');
+Route::put('/api/employees/{id}', 'EmployeeController@update');
+Route::delete('/api/employees/{id}', 'EmployeeController@destroy');

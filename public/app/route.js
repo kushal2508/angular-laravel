@@ -5,9 +5,11 @@ app.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'templates/create.html',
 		controller: 'CreateEmployeeController'
 	})
+	.when('/employee/edit/:id', {
+		templateUrl: 'templates/create.html',
+		controller: 'CreateEmployeeController'
+	})
 	.when('/employee/showall', {
 		templateUrl: 'templates/showall.html'
-		/*,
-		controller: 'ShowallEmployeeController'*/
 	});
 }]);

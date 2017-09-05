@@ -9,12 +9,10 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        //
     }
 
     public function create()
     {
-        //
     }
 
     public function store(Request $request)
@@ -22,9 +20,9 @@ class EmployeeController extends Controller
         Employee::create(request(['firstName', 'lastName', 'mobileNumber', 'email', 'password']));
     }
 
-    public function show(Employee $employee)
+    public function show($id)
     {
-        //
+        return Employee::find($id);
     }
 
     public function showall()
@@ -34,16 +32,17 @@ class EmployeeController extends Controller
 
     public function edit(Employee $employee)
     {
-        //
     }
 
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::find($id);
+        $employee->update(request(['firstName', 'lastName', 'mobileNumber', 'email', 'password']));
     }
 
     public function destroy($id)
     {
-        return Employee::where('id',$id)->delete();
+        Employee::where('id',$id)->delete();
+        return Employee::all();
     }
 }
