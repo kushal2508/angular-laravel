@@ -52,3 +52,6 @@ Backend Technology: Laravel
 3. Added token in the header of each API called in AngularJS
 4. Changed the API form and web.php to api.php and introduced middleware JWTAuth in each API
 5. Successfully added Authentication in REST API
+
+06/09/2017 Evening Update:
+1. Implementation for Social Sign In in process

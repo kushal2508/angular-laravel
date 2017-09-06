@@ -1,5 +1,5 @@
-app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '$location', 'tokenProp',
-	function ($scope, $http, $routeParams, $location, tokenProp) {
+app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '$location', 'tokenProp', 
+	function ($scope, $http, $routeParams, $location, tokenProp, $auth, toastr) {
 		$scope.title = "Registration Form";
 		$scope.phnoPattern = /^\d{10}$/;
 
@@ -125,5 +125,22 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 				}
 				$scope.regForm.$setPristine();
 			}
+		};
+
+		$scope.authenticate = function(provider) {
+			$auth.authenticate(provider)
+			.then(function() {
+				// toastr.success('You have successfully signed in with ' + provider + '!');
+				$location.path('/');
+			})
+			.catch(function(error) {
+				if (error.message) {
+					// toastr.error(error.message);
+				} else if (error.data) {
+					// toastr.error(error.data.message, error.status);
+				} else {
+					// toastr.error(error);
+				}
+			});
 		};
 	}]);
