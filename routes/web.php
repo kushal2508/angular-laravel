@@ -25,8 +25,8 @@ Route::group(array('prefix'=>'/templates/'),function(){
     }));
 });
 
-Route::get('/api/employees', 'EmployeeController@showall');
-Route::post('/api/employees', 'EmployeeController@store');
-Route::get('/api/employees/{id}', 'EmployeeController@show');
-Route::put('/api/employees/{id}', 'EmployeeController@update');
-Route::delete('/api/employees/{id}', 'EmployeeController@destroy');
+// Route::get('/api/employees', 'EmployeeController@showall');
+// Route::post('/api/employees', 'EmployeeController@store');
+// Route::get('/api/employees/{id}', 'EmployeeController@show');
+// Route::put('/api/employees/{id}', 'EmployeeController@update');
+// Route::delete('/api/employees/{id}', 'EmployeeController@destroy');

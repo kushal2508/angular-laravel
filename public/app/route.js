@@ -11,5 +11,11 @@ app.config(['$routeProvider', function($routeProvider) {
 	})
 	.when('/employee/showall', {
 		templateUrl: 'templates/showall.html'
+	})
+	.when('/employee/login', {
+		templateUrl: 'templates/login.html'
+	})
+	.when('/employee/register', {
+		templateUrl: 'templates/register.html'
 	});
 }]);

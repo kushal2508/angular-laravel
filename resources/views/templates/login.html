@@ -1,0 +1,15 @@
+<main  role="main" data-ng-controller="CreateEmployeeController" class="animated fadeIn">
+	<h1>Login</h1>
+	<form data-ng-submit="login()" name="loginForm" novalidate="">
+		<!-- <input type="hidden" name="uniquekey" data-ng-model="uniquekey"> -->
+		<div ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }" class="form-group">
+			<input type="email" name="email" data-ng-model="email" placeholder="Email" required="" class="form-control col-md-6">
+			<label class="error" ng-show="loginForm.email.$invalid && !loginForm.email.$pristine">Email required !</label>
+		</div>
+		<div ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }" class="form-group">
+			<input type="password" name="password" id="password" data-ng-model="password" ng-minlength="4" ng-maxlength="20" maxlength="20" placeholder="Password" required="" class="form-control col-md-6">
+			<label class="error" ng-show="loginForm.password.$invalid && !loginForm.password.$pristine">Password required !</label>
+		</div>
+		<button ng-disabled="loginForm.$invalid" class="btn btn-success col-md-6"><strong>Login</strong></button>
+	</form>
+</main>

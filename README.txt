@@ -45,3 +45,10 @@ Backend Technology: Laravel
 4. Created a REST API to register a new User and return him with token
 5. Created a general REST API to check the complete functionality using REST API and JWT Auth
 6. Tomorrow I will introduce Log In and Register feature in my example and will update the JWT Authentication in each API
+
+06/09/2017 Before Lunch Update:
+1. Created a view for Login and Registration for Users
+2. Made a factory in AngularJS with get set method to use login JWT token between more than one controllers
+3. Added token in the header of each API called in AngularJS
+4. Changed the API form and web.php to api.php and introduced middleware JWTAuth in each API
+5. Successfully added Authentication in REST API

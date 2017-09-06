@@ -24,6 +24,7 @@
 
 	{{-- Services --}}
 	<script src="{{ asset('/app/services/employeeServices.js') }}"></script>
+	<script src="{{ asset('/app/services/tokenservice.js') }}"></script>
 
 	<title>AngularJS Laravel App</title>
 
@@ -48,42 +49,38 @@
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="#!/employee/showall">Home <span class="sr-only">(current)</span></a>
 				</li>
-			{{-- <li class="nav-item">
-				<a class="nav-link" href="#">Settings</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Profile</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Help</a>
-			</li> --}}
-		</ul>
-		<form class="form-inline mt-2 mt-md-0">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
-	</div>
-</nav>
-
-<div class="container-fluid">
-	<div class="row">
-		<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-			<ul class="nav nav-pills flex-column">
-				<li class="nav-item">
-					<a class="nav-link" ng-href="#!/employee/create">New Employee</a>
+				<li class="nav-item active">
+					<a class="nav-link" href="#!/employee/register">Register <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" ng-href="#!/employee/showall">Employees List</a>
+				<li class="nav-item active">
+					<a class="nav-link" href="#!/employee/login">Login <span class="sr-only">(current)</span></a>
 				</li>
 			</ul>
-		</nav>
-		
-		<div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-			<ng-view></ng-view>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+				<ul class="nav nav-pills flex-column">
+					{{-- <li class="nav-item">
+						<a class="nav-link" ng-href="#!/employee/login">Login</a>
+					</li> --}}
+					<li class="nav-item">
+						<a class="nav-link" ng-href="#!/employee/create">New Employee</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" ng-href="#!/employee/showall">Employees List</a>
+					</li>
+				</ul>
+			</nav>
+
+			<div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+				<ng-view></ng-view>
+			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>
