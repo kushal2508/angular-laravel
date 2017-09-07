@@ -20,7 +20,7 @@
 				<td>{{ r.mobileNumber }}</td>
 				<td>{{ r.email }}</td>
 				<td><a ng-href="#!/employee/edit/{{r.id}}"><button class="btn btn-primary">Edit</button></a></td>
-				<td><button ng-click="delete(r.id)" class="btn btn-danger">Delete</button></td>
+				<td ng-if="auth"><button ng-click="delete(r.id)" class="btn btn-danger">Delete</button></td>
 			</tr>
 		</tbody>
 	</table>

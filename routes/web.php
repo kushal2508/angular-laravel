@@ -26,6 +26,8 @@ Route::group(array('prefix'=>'/templates/'),function(){
 });
 
 Route::post('/auth/facebook', 'AuthController@facebook');
+Route::post('/auth/google', 'AuthController@google');
+Route::post('/auth/twitter', 'AuthController@twitter');
 
 // Route::get('/api/employees', 'EmployeeController@showall');
 // Route::post('/api/employees', 'EmployeeController@store');

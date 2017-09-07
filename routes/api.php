@@ -27,3 +27,9 @@ Route::middleware('jwt.auth')->post('/employees', 'EmployeeController@store');
 Route::middleware('jwt.auth')->get('/employees/{id}', 'EmployeeController@show');
 Route::middleware('jwt.auth')->put('/employees/{id}', 'EmployeeController@update');
 Route::middleware('jwt.auth')->delete('/employees/{id}', 'EmployeeController@destroy');
+
+/*Route::middleware('auth')->get('/employees', 'EmployeeController@showall');
+Route::middleware('auth')->post('/employees', 'EmployeeController@store');
+Route::middleware('auth')->get('/employees/{id}', 'EmployeeController@show');
+Route::middleware('auth')->put('/employees/{id}', 'EmployeeController@update');
+Route::middleware('auth')->delete('/employees/{id}', 'EmployeeController@destroy');*/

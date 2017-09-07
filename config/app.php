@@ -4,6 +4,9 @@ return [
 
     'token_secret' => 'abcdefghi',
     'facebook_secret' => '',
+    'google_secret' => '',
+    'twitter_key' => '',
+    'twitter_secret' => '',
 
     /*
     |--------------------------------------------------------------------------

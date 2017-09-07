@@ -25,6 +25,19 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
 		// redirectUri: window.location.origin + '/'
 	});
 
+	$authProvider.google({
+		clientId: '217083922083-mu0se3oc6vr98hpqf56ao1rhfrauuk8h.apps.googleusercontent.com',
+		url: '/auth/google'
+	});
+
+	$authProvider.twitter({
+		url: '/auth/twitter',
+		authorizationEndpoint: 'https://api.twitter.com/oauth/authenticate',
+		redirectUri: window.location.origin,
+		oauthType: '1.0',
+		popupOptions: { width: 495, height: 645 }
+	});
+
 	/*$authProvider.facebook({
 		clientId: '1372760936176180',
 		responseType: 'token',
@@ -40,12 +53,4 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
 		oauthType: '2.0',
 		popupOptions: { width: 580, height: 400 }
 	});*/
-
-    /*$authProvider.oauth2({
-      name: 'foursquare',
-      url: '/auth/foursquare',
-      clientId: 'Foursquare Client ID',
-      redirectUri: window.location.origin,
-      authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
-  });*/
 }]);

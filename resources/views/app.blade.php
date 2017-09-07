@@ -67,7 +67,7 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="#!/employee/register">Register <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item active">
+				<li class="nav-item active" ng-if="!isAuthenticated()">
 					<a class="nav-link" href="#!/employee/login">Login <span class="sr-only">(current)</span></a>
 				</li>
 			</ul>

@@ -6,6 +6,20 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 		$scope.editid = $routeParams.id;
 		console.log("edit id:" + $scope.editid);
 
+		/*$scope.isAuthenticated = function() {
+			return $auth.isAuthenticated();
+		};*/
+
+		if (sessionStorage.authenticated == 'false' || sessionStorage.authenticated == undefined){
+			$scope.auth = false;
+			// $scope.loading = true;
+		}
+		else{
+			$scope.auth = true;
+			/*$http.defaults.headers.common['Authorization'] = sessionStorage.token;
+			$scope.loading = true;*/
+		}
+
 		if($scope.editid > 0) {
 			$scope.heading = "Update Employee";	
 			$scope.action = "Update";
@@ -130,6 +144,9 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 		$scope.authenticate = function(provider) {
 			$auth.authenticate(provider).then(function(response){
 				console.log(response);
+				sessionStorage.token = response.data.token;
+				sessionStorage.authenticated = true;
+				tokenProp.setToken(response.data.token);
 			}, function(response){
 				console.log(response);
 			});
@@ -146,7 +163,7 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 				}, function() {
 					console.log("facebook login failure");
 				});*/
-		};
+			};
 
 		/*$scope.authenticate = function(provider) {
 			$auth.authenticate(provider)
