@@ -14,15 +14,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.4/angular-resource.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.js"></script>
+	{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-messages.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-sanitize.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 	<script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
-	<link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+	<link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" /> --}}
 
 	{{-- Satellizer --}}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.14.1/satellizer.min.js"></script>
+	{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.14.1/satellizer.min.js"></script> --}}
+	<script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
 	
 	{{-- App Dependencies --}}
 	<script src="{{ asset('/app/route.js') }}"></script>
@@ -34,6 +35,9 @@
 	{{-- Services --}}
 	<script src="{{ asset('/app/services/employeeServices.js') }}"></script>
 	<script src="{{ asset('/app/services/tokenservice.js') }}"></script>
+
+	{{-- Config --}}
+	{{-- <script src="{{ asset('/app/config/satellizerconfig.js') }}"></script> --}}
 
 	<title>AngularJS Laravel App</title>
 

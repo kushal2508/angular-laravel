@@ -2,6 +2,9 @@
 
 return [
 
+    'token_secret' => 'abcdefghi',
+    'facebook_secret' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

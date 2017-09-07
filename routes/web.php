@@ -25,6 +25,8 @@ Route::group(array('prefix'=>'/templates/'),function(){
     }));
 });
 
+Route::post('/auth/facebook', 'AuthController@facebook');
+
 // Route::get('/api/employees', 'EmployeeController@showall');
 // Route::post('/api/employees', 'EmployeeController@store');
 // Route::get('/api/employees/{id}', 'EmployeeController@show');

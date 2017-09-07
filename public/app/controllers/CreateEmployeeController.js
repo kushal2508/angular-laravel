@@ -1,5 +1,5 @@
-app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '$location', 'tokenProp', 
-	function ($scope, $http, $routeParams, $location, tokenProp, $auth, toastr) {
+app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '$location', 'tokenProp', '$auth',
+	function ($scope, $http, $routeParams, $location, tokenProp, $auth) {
 		$scope.title = "Registration Form";
 		$scope.phnoPattern = /^\d{10}$/;
 
@@ -128,6 +128,27 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 		};
 
 		$scope.authenticate = function(provider) {
+			$auth.authenticate(provider).then(function(response){
+				console.log(response);
+			}, function(response){
+				console.log(response);
+			});
+			/*var fbdata = {
+					// code: '1372760936176180',
+					clientId: '1372760936176180',
+					redirectUri: window.location.origin + '/'
+				};
+
+			$http.post("/api/auth/facebook/", fbdata)
+			.then(
+				function(records) {
+					console.log("facebook login success");
+				}, function() {
+					console.log("facebook login failure");
+				});*/
+		};
+
+		/*$scope.authenticate = function(provider) {
 			$auth.authenticate(provider)
 			.then(function() {
 				// toastr.success('You have successfully signed in with ' + provider + '!');
@@ -142,5 +163,5 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 					// toastr.error(error);
 				}
 			});
-		};
+		};*/
 	}]);
