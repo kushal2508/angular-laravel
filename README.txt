@@ -3,6 +3,16 @@ CRUD + Authentication Example
 Frontend Technology: Angular.js
 Backend Technology: Laravel
 
+Execution:
+1. Clone the project form github
+2. Change the directory to your project
+	cd new-project-name
+3. Run composer install
+4. Run npm install
+5. Add .env file
+6. Run php artisan key:generate
+7. Run artisan migrate --seed
+
 01/09/2017 Update:
 1. Watched few videos to merge power of Angular.js and Laravel
 2. Made a simple Bootstrap template for dashboard, crud operation forms to insert data from user
