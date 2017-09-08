@@ -61,3 +61,6 @@ Backend Technology: Laravel
 2. Google Login Complete
 3. Working on Twitter Login
 4. Used Satellizer for Social Login
+
+08/09/2017 Evening Update:
+1. Twitter Login Complete

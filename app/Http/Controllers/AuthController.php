@@ -149,7 +149,7 @@ class AuthController extends Controller
               'consumer_key' => Config::get('app.twitter_key'),
               'consumer_secret' => Config::get('app.twitter_secret'),
               'callback' => $request->input('redirectUri'),
-              'token' => '',
+              'token' => '476044865-jxbgeXG5VETkJjiIleNggJocpJxBdbMurcJvOSEl',
               'token_secret' => ''
               ]);
             $stack->push($requestTokenOauth);
@@ -200,10 +200,12 @@ class AuthController extends Controller
                 'auth' => 'oauth'
                 ]);
             $profile = json_decode($profileResponse->getBody(), true);
+            // return $profile;
             // Step 5a. Link user accounts.
             if ($request->header('Authorization'))
             {
-                $user = User::where('twitter', '=', $profile['id']);
+                // $user = User::where('twitter', '=', $profile['id']);
+                $user = User::where('email', '=', $profile['email']);
                 if ($user->first())
                 {
                     return response()->json(['message' => 'There is already a Twitter account that belongs to you'], 409);
@@ -219,7 +221,8 @@ class AuthController extends Controller
             // Step 5b. Create a new user account or return an existing one.
             else
             {
-                $user = User::where('twitter', '=', $profile['id']);
+                // $user = User::where('twitter', '=', $profile['id']);
+                $user = User::where('email', '=', $profile['email']);
                 if ($user->first())
                 {
                     return response()->json(['token' => $this->createToken($user->first())]);

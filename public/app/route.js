@@ -21,8 +21,7 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
 
 	$authProvider.facebook({
 		clientId: '1372760936176180',
-		url: '/auth/facebook'
-		// redirectUri: window.location.origin + '/'
+		url: '/auth/facebook' 
 	});
 
 	$authProvider.google({
@@ -37,20 +36,4 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
 		oauthType: '1.0',
 		popupOptions: { width: 495, height: 645 }
 	});
-
-	/*$authProvider.facebook({
-		clientId: '1372760936176180',
-		responseType: 'token',
-		name: 'facebook',
-		url: '/auth/facebook',
-		authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
-		// redirectUri: window.location.origin + '/',
-		redirectUri: window.location.origin + '/',
-		requiredUrlParams: ['display', 'scope'],
-		scope: ['email'],
-		scopeDelimiter: ',',
-		display: 'popup',
-		oauthType: '2.0',
-		popupOptions: { width: 580, height: 400 }
-	});*/
 }]);
