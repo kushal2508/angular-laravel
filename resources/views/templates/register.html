@@ -1,19 +1,37 @@
-<main  role="main" data-ng-controller="CreateEmployeeController" class="animated fadeIn">
-	<h1>Register</h1>
-	<form data-ng-submit="register()" name="registerForm" novalidate="">
-		<!-- <input type="hidden" name="uniquekey" data-ng-model="uniquekey"> -->
-		<div ng-class="{ 'has-error' : registerForm.name.$invalid && !registerForm.name.$pristine }" class="form-group">
-			<input type="text" name="name" data-ng-model="name" placeholder="Name" required="" class="form-control col-md-6">
-			<label class="error" ng-show="registerForm.name.$invalid && !registerForm.name.$pristine">Name required !</label>
-		</div>
-		<div ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }" class="form-group">
-			<input type="email" name="email" data-ng-model="email" placeholder="Email" required="" class="form-control col-md-6">
-			<label class="error" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Email required !</label>
-		</div>
-		<div ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }" class="form-group">
-			<input type="password" name="password" id="password" data-ng-model="password" ng-minlength="4" ng-maxlength="20" maxlength="20" placeholder="Password" required="" class="form-control col-md-6">
-			<label class="error" ng-show="registerForm.password.$invalid && !registerForm.password.$pristine">Password required !</label>
-		</div>
-		<button ng-disabled="registerForm.$invalid" class="btn btn-success col-md-6"><strong>Register</strong></button>
-	</form>
-</main>
+<div class="row">
+	<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+		<ul class="nav nav-pills flex-column">
+			<li class="nav-item">
+				<a class="nav-link" ng-href="#!/employee/create" ng-if="auth">New Employee</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" ng-href="#!/employee/showall" ng-if="auth">Employees List</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" ng-href="#!/employee/logout" ng-if="auth">Logout</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+		<main  role="main" data-ng-controller="CreateEmployeeController" class="animated fadeIn">
+			<h1>Register</h1>
+			<form data-ng-submit="register()" name="registerForm" novalidate="">
+				<!-- <input type="hidden" name="uniquekey" data-ng-model="uniquekey"> -->
+				<div ng-class="{ 'has-error' : registerForm.name.$invalid && !registerForm.name.$pristine }" class="form-group">
+					<input type="text" name="name" data-ng-model="name" placeholder="Name" required="" class="form-control col-md-6">
+					<label class="error" ng-show="registerForm.name.$invalid && !registerForm.name.$pristine">Name required !</label>
+				</div>
+				<div ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }" class="form-group">
+					<input type="email" name="email" data-ng-model="email" placeholder="Email" required="" class="form-control col-md-6">
+					<label class="error" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Email required !</label>
+				</div>
+				<div ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }" class="form-group">
+					<input type="password" name="password" id="password" data-ng-model="password" ng-minlength="4" ng-maxlength="20" maxlength="20" placeholder="Password" required="" class="form-control col-md-6">
+					<label class="error" ng-show="registerForm.password.$invalid && !registerForm.password.$pristine">Password required !</label>
+				</div>
+				<button ng-disabled="registerForm.$invalid" class="btn btn-success col-md-3"><strong>Register</strong></button>
+				<a href="#!/employee/login" class="btn btn-warning col-md-3"><strong>Sign In</strong></a>
+			</form>
+		</main>
+	</div>
+</div>

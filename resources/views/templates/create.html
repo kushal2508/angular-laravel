@@ -1,35 +1,52 @@
-<main  role="main" data-ng-controller="CreateEmployeeController" class="animated fadeIn">
-	<h1>{{ heading }}</h1>
-	<form data-ng-submit="saveForm()" name="regForm" novalidate="">
-		<input type="hidden" name="uniquekey" data-ng-model="uniquekey">
-		<div ng-class="{ 'has-error' : regForm.firstname.$invalid && !regForm.firstname.$pristine }" class="form-group">
-			<input type="text" name="firstname" data-ng-model="firstname" placeholder="First Name" required="" class="form-control col-md-6">
-			<label class="error" ng-show="regForm.firstname.$invalid && !regForm.firstname.$pristine">First Name required !</label>
-		</div>
-		<div ng-class="{ 'has-error' : regForm.lastname.$invalid && !regForm.lastname.$pristine }" class="form-group">
-			<input type="text" name="lastname" data-ng-model="lastname" placeholder="Last Name" required="" class="form-control col-md-6">
-			<label class="error" ng-show="regForm.lastname.$invalid && !regForm.lastname.$pristine">Last Name required !</label>
-		</div>
-		<div ng-class="{ 'has-error' : regForm.phonenumber.$invalid && !regForm.phonenumber.$pristine }" class="form-group">
-			<input type="text" name="phonenumber" data-ng-model="phonenumber" placeholder="Phone Number" required="" ng-minlength="10" ng-maxlength="10" maxlength="10" ng-pattern="phnoPattern" class="form-control col-md-6" >
-			<label class="error" ng-show="(regForm.phonenumber.$error.minlength || regForm.phonenumber.$error.maxlength || regForm.phonenumber.$error.pattern)">10 Digits Phone Number required !</label>
-		</div>
-		<div ng-class="{ 'has-error' : regForm.email.$invalid && !regForm.email.$pristine }" class="form-group">
-			<input type="email" name="email" data-ng-model="email" placeholder="Email" required="" class="form-control col-md-6">
-			<label class="error" ng-show="regForm.email.$invalid && !regForm.email.$pristine">Email required !</label>
-		</div>
-		<div ng-class="{ 'has-error' : regForm.email.$invalid && !regForm.email.$pristine }" class="form-group">
-			<input type="password" name="password" id="password" data-ng-model="password" ng-minlength="8" ng-maxlength="20" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="Password" required="" class="form-control col-md-6">
-			<!-- <label class="error" ng-show="regForm.password.$invalid && !regForm.password.$pristine">Password required !</label> -->
-			<label class="error" ng-show="regForm.password.$error.pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol)</label>
-			<label class="error" ng-show="regForm.password.$error.minlength">Passwords must be between 8 and 20 characters !</label>
-		</div>
-		<div class="form-group" ng-class="{'has-error':formData.password_c.$invalid && !formData.password_c.$pristine}">
-			<input type="password" id="password_c" name="password_c" ng-model="password_c" placeholder="Confirm Password" valid-password-c="password" class="form-control col-md-6" required />
-			<label class="error" ng-show="regForm.password_c.$error.noMatch">Passwords do not match !</label>
-			<!-- <label class="error" ng-show="regForm.password_c.$invalid && !regForm.password_c.$pristine">Confirm Password required !</label> -->
-			<!-- <p ng-show="regForm.password_c.$error.required" class="error">*</p> -->
-		</div>
-		<button ng-disabled="regForm.$invalid" class="btn btn-success col-md-6"><strong>{{ action }}</strong></button>
-	</form>
-</main>
+<div class="row">
+	<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+		<ul class="nav nav-pills flex-column">
+			<li class="nav-item">
+				<a class="nav-link" ng-href="#!/employee/create" ng-if="auth">New Employee</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" ng-href="#!/employee/showall" ng-if="auth">Employees List</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" ng-href="#!/employee/logout" ng-if="auth">Logout</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+		<main  role="main" data-ng-controller="CreateEmployeeController" class="animated fadeIn">
+			<h1>{{ heading }}</h1>
+			<form data-ng-submit="saveForm()" name="regForm" novalidate="">
+				<input type="hidden" name="uniquekey" data-ng-model="uniquekey">
+				<div ng-class="{ 'has-error' : regForm.firstname.$invalid && !regForm.firstname.$pristine }" class="form-group">
+					<input type="text" name="firstname" data-ng-model="firstname" placeholder="First Name" required="" class="form-control col-md-6">
+					<label class="error" ng-show="regForm.firstname.$invalid && !regForm.firstname.$pristine">First Name required !</label>
+				</div>
+				<div ng-class="{ 'has-error' : regForm.lastname.$invalid && !regForm.lastname.$pristine }" class="form-group">
+					<input type="text" name="lastname" data-ng-model="lastname" placeholder="Last Name" required="" class="form-control col-md-6">
+					<label class="error" ng-show="regForm.lastname.$invalid && !regForm.lastname.$pristine">Last Name required !</label>
+				</div>
+				<div ng-class="{ 'has-error' : regForm.phonenumber.$invalid && !regForm.phonenumber.$pristine }" class="form-group">
+					<input type="text" name="phonenumber" data-ng-model="phonenumber" placeholder="Phone Number" required="" ng-minlength="10" ng-maxlength="10" maxlength="10" ng-pattern="phnoPattern" class="form-control col-md-6" >
+					<label class="error" ng-show="(regForm.phonenumber.$error.minlength || regForm.phonenumber.$error.maxlength || regForm.phonenumber.$error.pattern)">10 Digits Phone Number required !</label>
+				</div>
+				<div ng-class="{ 'has-error' : regForm.email.$invalid && !regForm.email.$pristine }" class="form-group">
+					<input type="email" name="email" data-ng-model="email" placeholder="Email" required="" class="form-control col-md-6">
+					<label class="error" ng-show="regForm.email.$invalid && !regForm.email.$pristine">Email required !</label>
+				</div>
+				<div ng-class="{ 'has-error' : regForm.email.$invalid && !regForm.email.$pristine }" class="form-group">
+					<input type="password" name="password" id="password" data-ng-model="password" ng-minlength="8" ng-maxlength="20" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="Password" required="" class="form-control col-md-6">
+					<!-- <label class="error" ng-show="regForm.password.$invalid && !regForm.password.$pristine">Password required !</label> -->
+					<label class="error" ng-show="regForm.password.$error.pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol)</label>
+					<label class="error" ng-show="regForm.password.$error.minlength">Passwords must be between 8 and 20 characters !</label>
+				</div>
+				<div class="form-group" ng-class="{'has-error':formData.password_c.$invalid && !formData.password_c.$pristine}">
+					<input type="password" id="password_c" name="password_c" ng-model="password_c" placeholder="Confirm Password" valid-password-c="password" class="form-control col-md-6" required />
+					<label class="error" ng-show="regForm.password_c.$error.noMatch">Passwords do not match !</label>
+					<!-- <label class="error" ng-show="regForm.password_c.$invalid && !regForm.password_c.$pristine">Confirm Password required !</label> -->
+					<!-- <p ng-show="regForm.password_c.$error.required" class="error">*</p> -->
+				</div>
+				<button ng-disabled="regForm.$invalid" class="btn btn-success col-md-6"><strong>{{ action }}</strong></button>
+			</form>
+		</main>
+	</div>
+</div>

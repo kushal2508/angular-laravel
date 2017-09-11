@@ -2,22 +2,14 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 	function ($scope, $http, $routeParams, $location, tokenProp, $auth) {
 		$scope.title = "Registration Form";
 		$scope.phnoPattern = /^\d{10}$/;
-
 		$scope.editid = $routeParams.id;
 		console.log("edit id:" + $scope.editid);
 
-		/*$scope.isAuthenticated = function() {
-			return $auth.isAuthenticated();
-		};*/
-
-		if (sessionStorage.authenticated == 'false' || sessionStorage.authenticated == undefined){
+		if (localStorage.getItem('loginauth') == 'false'){
 			$scope.auth = false;
-			// $scope.loading = true;
 		}
 		else{
 			$scope.auth = true;
-			/*$http.defaults.headers.common['Authorization'] = sessionStorage.token;
-			$scope.loading = true;*/
 		}
 
 		if($scope.editid > 0) {
@@ -71,18 +63,18 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 				password: $scope.password
 			};
 
-			$http.post("/api/authenticate", logindata)
+			// $http.post("/api/authenticate", logindata)
+			$http.post("/auth/login", logindata)
 			.then(
 				function(data) {
 					console.log("authentication success");
 					console.log(data);
 					$scope.token = data.data.token;
 					tokenProp.setToken($scope.token);
-					// $scope.success = true;
-					$location.path('/employee/showall');
+					localStorage.setItem('loginauth', true);
+					$location.path('/employee/create');
 				}, function() {
 					console.log("authentication failure");
-					// $scope.success = false;
 					$location.path('/employee/create');
 				});
 		};
@@ -144,41 +136,12 @@ app.controller('CreateEmployeeController', ['$scope', '$http', '$routeParams', '
 		$scope.authenticate = function(provider) {
 			$auth.authenticate(provider).then(function(response){
 				console.log(response);
-				sessionStorage.token = response.data.token;
-				sessionStorage.authenticated = true;
+				// sessionStorage.token = response.data.token;
+				// sessionStorage.authenticated = true;
+				localStorage.setItem('loginauth', true);
 				tokenProp.setToken(response.data.token);
 			}, function(response){
 				console.log(response);
 			});
-			/*var fbdata = {
-					// code: '1372760936176180',
-					clientId: '1372760936176180',
-					redirectUri: window.location.origin + '/'
-				};
-
-			$http.post("/api/auth/facebook/", fbdata)
-			.then(
-				function(records) {
-					console.log("facebook login success");
-				}, function() {
-					console.log("facebook login failure");
-				});*/
-			};
-
-		/*$scope.authenticate = function(provider) {
-			$auth.authenticate(provider)
-			.then(function() {
-				// toastr.success('You have successfully signed in with ' + provider + '!');
-				$location.path('/');
-			})
-			.catch(function(error) {
-				if (error.message) {
-					// toastr.error(error.message);
-				} else if (error.data) {
-					// toastr.error(error.data.message, error.status);
-				} else {
-					// toastr.error(error);
-				}
-			});
-		};*/
+		};
 	}]);

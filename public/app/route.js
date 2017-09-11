@@ -1,6 +1,9 @@
 var app = angular.module('crudApp', ['ngRoute', 'ngResource', 'satellizer']);
 app.config(['$routeProvider', '$authProvider', function($routeProvider, $authProvider) {
 	$routeProvider
+	.when('/', {
+		templateUrl: 'templates/login.html'
+	})
 	.when('/employee/create', {
 		templateUrl: 'templates/create.html',
 		controller: 'CreateEmployeeController'
@@ -17,7 +20,13 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
 	})
 	.when('/employee/register', {
 		templateUrl: 'templates/register.html'
+	})
+	.when('/employee/logout', {
+		templateUrl: 'templates/login.html',
+		controller: 'LogoutController'
 	});
+
+	$authProvider.loginUrl = '/auth/login';
 
 	$authProvider.facebook({
 		clientId: '1372760936176180',

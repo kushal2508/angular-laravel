@@ -2,6 +2,12 @@ app.controller('ShowallEmployeeController', ['$scope', '$http', 'tokenProp', fun
 	console.log("Token is: " + tokenProp.getToken());
 	$http.defaults.headers.common.Authorization = 'Bearer ' + tokenProp.getToken();
 
+	if (localStorage.getItem('loginauth') == 'false'){
+		$scope.auth = false;
+	}
+	else{
+		$scope.auth = true;
+	}
 
 	$http.get("/api/employees", {
 		headers: {
@@ -11,7 +17,6 @@ app.controller('ShowallEmployeeController', ['$scope', '$http', 'tokenProp', fun
 	.then(
 		function(records) {
 			console.log("show all success");
-			// console.log(records);
 			$scope.records = records.data;
 		}, function(records) {
 			console.log("show all failure");

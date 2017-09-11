@@ -17,7 +17,7 @@ Route::post('auth/instagram', 'AuthController@instagram');
 Route::post('auth/github', 'AuthController@github');
 // Route::post('auth/google', 'AuthController@google');
 Route::post('auth/linkedin', 'AuthController@linkedin');
-Route::post('auth/login', 'AuthController@login');
+// Route::post('auth/login', 'AuthController@login');
 Route::post('auth/signup', 'AuthController@signup');
 Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
 // API Routes.
